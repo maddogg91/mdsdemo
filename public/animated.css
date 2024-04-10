@@ -29,7 +29,8 @@ table{border-collapse:collapse;border-spacing:0;}
 body,html{height:100%;}
 body{color:#fff;margin:0 auto;font:1em/1.3em Montserrat,Helvetica,sans-serif;}
 .clearfix{clear:both;}
-.container{ padding-top:20px;height:100%;width:100%;text-align:center;background-color:#CFC1B5;}
+.container{ padding-top:50px;height:200%;width:100%;text-align:center;
+background-position:center; background-size: cover; background-color:#CFC1B5;background-image: url("images/mobile.gif")}
 h1{margin:40px 0;font-size:40px;line-height:40px;font-weight:bold;text-shadow:0px 1px 1px #888;}
 a{text-decoration:none;color:#fff;margin:0 10px;}
 .btn{box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;position:relative;
