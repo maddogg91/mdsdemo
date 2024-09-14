@@ -1,5 +1,5 @@
 {
-  "name": "Lift&LaunchDemo",
+  "name": "MaddoggSoftwareDemos",
   "version": "1.0.0",
   "description": "Every new repl comes with a `.replit` and a `replit.nix` file that let you configure your repl to do just about anything in any language!",
   "main": "server.js",
@@ -13,10 +13,21 @@
   },
   "license": "ISC",
   "dependencies": {
+    "@googlemaps/google-maps-services-js": "^3.4.0",
     "body-parser": "^1.20.2",
+    "dotenv": "^16.4.5",
     "ejs": "^3.1.9",
     "express": "^4.18.2",
-    "nodemon": "^2.0.20"
+    "firebase-admin": "^12.0.0",
+    "firebase-functions": "^4.8.1",
+    "googleapis": "^134.0.0",
+    "mongodb": "^6.5.0",
+    "node-fetch": "^3.3.2",
+    "nodemailer": "^6.9.13",
+    "nodemon": "^3.1.4",
+    "path": "^0.12.7",
+    "redis": "^4.7.0",
+    "unirest": "^0.6.0"
   }
 }
 
