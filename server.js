@@ -1,6 +1,6 @@
 const express = require('express')
 const app = express()
-const port = 8000
+
 const path = require('path');
 var ejs = require('ejs');
 var bodyParser = require('body-parser');
@@ -68,7 +68,7 @@ app.get('/', function(req, res) {
   res.sendFile(path.join(parent_dir, 'templates/index.html'));
 });
 
-
+const port = process.env.PORT || 8080;
 app.listen(port, () => {
- console.log(`Running on ${port}`);
-})
+  console.log("Starting Server on port #: " + port)
+});
