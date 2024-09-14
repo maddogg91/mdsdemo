@@ -71,10 +71,11 @@ res.render(path.join(__dirname, 'templates/index.html'), {events: load_events()}
 
 });
 
-app.listen(8800, () => {	
-	makeConnection();
-	
-	console.log("Loading events");
+
+
+const port = process.env.PORT || 8080;
+app.listen(port, () => {
+  console.log("Starting Server on port #: " + port)
 });
 
 
