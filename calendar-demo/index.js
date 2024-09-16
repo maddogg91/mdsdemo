@@ -1,4 +1,4 @@
-
+module.exports = function(){
 const express = require("express");
 const app = express();
 const path = require("path");
@@ -72,7 +72,7 @@ app.get('calendar', async function(req,res, next){
 res.render(path.join(__dirname, 'templates/index.html'), {events: load_events()});
 
 });
-
+}
 
 
 
