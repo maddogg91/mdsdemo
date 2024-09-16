@@ -55,7 +55,7 @@ fs.writeFile(path.join(parent_dir,'public/results.json'), JSON.stringify(results
 async function getData(loc, type){
   
   
-const url= `https://maps.googleapis.com/maps/api/place/textsearch/json?location=${loc}&query=${type}&radius=1000&key=AIzaSyACT9OdzzHZUZtWN_Ug6yIpgTqRRmtmXUI`
+const url= `https://maps.googleapis.com/maps/api/place/textsearch/json?location=${loc}&query=${type}&radius=1000&key=process.env.MAPS`
  console.log(url);
  let header = {
         "User-Agent": "Mozilla/5.0 (Windows NT 6.3; Win64; x64)  AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.84 Safari/537.36 Viewer/96.9.4688.89"
