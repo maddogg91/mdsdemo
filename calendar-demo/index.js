@@ -29,7 +29,7 @@ async function makeConnection(){
 });
 }
 
-app.post('save', async function(req,res, next){
+app.post('/save', async function(req,res, next){
 	new_event= req.body;
 	if(new_event.calendar== 'Meeting'){
 		new_event.color= "orange";
@@ -57,7 +57,7 @@ function load_events(){
 	return JSON.parse(fs.readFileSync(path.join(__dirname, 'public/events.json'), 'utf8'));
 }
 
-app.get('calendar', async function(req,res, next){
+app.get('/calendar', async function(req,res, next){
 res.render(path.join(__dirname, 'templates/index.html'), {events: load_events()});
 
 });
