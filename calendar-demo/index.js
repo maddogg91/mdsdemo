@@ -1,3 +1,4 @@
+
 const express = require("express");
 const app = express();
 const path = require("path");
@@ -13,7 +14,7 @@ app.use(express.static("images"));
 app.use(express.json());
 app.use(bodyParser.urlencoded({extended: true}));
 const loaded_events= load_events();
-const functions = require('@google-cloud/functions-framework');
+
 
 
 const client = redis.createClient({
@@ -39,12 +40,7 @@ async function makeConnection(){
 });
 }
 
-functions.http('save', async function(req,res, next){
-res.set('Access-Control-Allow-Origin', '*');
-res.set('Access-Control-Allow-Methods', 'POST');
-    res.set('Access-Control-Allow-Headers', 'Content-Type');
-    res.set('Access-Control-Max-Age', '3600');
-
+app.post('save', async function(req,res, next){
 	new_event= req.body;
 	if(new_event.calendar== 'Meeting'){
 		new_event.color= "orange";
@@ -72,15 +68,10 @@ function load_events(){
 	return JSON.parse(fs.readFileSync(path.join(__dirname, 'public/events.json'), 'utf8'));
 }
 
-functions.http('calendar', function(req, res) {
-res.set('Access-Control-Allow-Origin', '*');res.set('Access-Control-Allow-Methods', 'GET');
-res.set('Access-Control-Allow-Headers', 'Content-Type');
-res.set('Access-Control-Max-Age', '3600');
+app.get('calendar', async function(req,res, next){
 res.render(path.join(__dirname, 'templates/index.html'), {events: load_events()});
 
 });
-
-
 
 const port = process.env.PORT || 8080;
 app.listen(port, () => {
@@ -88,7 +79,6 @@ app.listen(port, () => {
 });
 
 
-process.on('SIGINT', function() {
-   client.quit();
-    console.log('redis client quit');
-});
+
+
+
