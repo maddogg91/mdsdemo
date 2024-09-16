@@ -40,7 +40,7 @@
       var right = createElement('div', 'right');
       right.addEventListener('click', function() { self.nextMonth(); });
 
-      var f = createElement('div', 'left');
+      var left = createElement('div', 'left');
       left.addEventListener('click', function() { self.prevMonth(); });
 
       //Append the Elements

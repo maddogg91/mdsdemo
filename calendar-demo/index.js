@@ -1,3 +1,4 @@
+
 const express = require("express");
 const app = express();
 const path = require("path");
@@ -15,8 +16,9 @@ app.use(bodyParser.urlencoded({extended: true}));
 const loaded_events= load_events();
 
 
+
 const client = redis.createClient({
-    password: '6dJRHTxo8VsrdFIf9pus4hTzBmfAWuAS',
+    password: process.env.REDIS,
     socket: {
         host: 'redis-16482.c1.us-east1-2.gce.redns.redis-cloud.com',
         port: 16482
@@ -38,7 +40,7 @@ async function makeConnection(){
 });
 }
 
-app.post('/save', async function(req,res, next){
+app.post('save', async function(req,res, next){
 	new_event= req.body;
 	if(new_event.calendar== 'Meeting'){
 		new_event.color= "orange";
@@ -57,7 +59,7 @@ app.post('/save', async function(req,res, next){
     console.error(err);
   } else {
     console.log("New event successfully written");
-	res.redirect('/');
+	res.redirect('/calendar');
 	}
 	});
 });
@@ -66,12 +68,10 @@ function load_events(){
 	return JSON.parse(fs.readFileSync(path.join(__dirname, 'public/events.json'), 'utf8'));
 }
 
-app.get('/', function(req, res) {
+app.get('calendar', async function(req,res, next){
 res.render(path.join(__dirname, 'templates/index.html'), {events: load_events()});
 
 });
-
-
 
 const port = process.env.PORT || 8080;
 app.listen(port, () => {
@@ -79,7 +79,6 @@ app.listen(port, () => {
 });
 
 
-process.on('SIGINT', function() {
-   client.quit();
-    console.log('redis client quit');
-});
+
+
+
