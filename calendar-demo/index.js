@@ -16,7 +16,7 @@ const loaded_events= load_events();
 
 
 const client = redis.createClient({
-    password: '6dJRHTxo8VsrdFIf9pus4hTzBmfAWuAS',
+    password: process.env.REDIS,
     socket: {
         host: 'redis-16482.c1.us-east1-2.gce.redns.redis-cloud.com',
         port: 16482
@@ -66,7 +66,7 @@ function load_events(){
 	return JSON.parse(fs.readFileSync(path.join(__dirname, 'public/events.json'), 'utf8'));
 }
 
-app.get('/', function(req, res) {
+app.get('/calendar', function(req, res) {
 res.render(path.join(__dirname, 'templates/index.html'), {events: load_events()});
 
 });
