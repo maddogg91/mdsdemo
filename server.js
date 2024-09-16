@@ -19,7 +19,7 @@ app.use(express.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
 const parent_dir= __dirname;
-var calendar= require('./calendar-demo/index.js');
+var calendar= require('./calendar-demo/index.js')(app, path);
 
 
 const c= new Client({});
