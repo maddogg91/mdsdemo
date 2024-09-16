@@ -39,7 +39,7 @@ async function makeConnection(){
 });
 }
 
-functions.http('/save', async function(req,res, next){
+functions.http('save', async function(req,res, next){
 	new_event= req.body;
 	if(new_event.calendar== 'Meeting'){
 		new_event.color= "orange";
@@ -58,7 +58,7 @@ functions.http('/save', async function(req,res, next){
     console.error(err);
   } else {
     console.log("New event successfully written");
-	res.redirect('/');
+	res.redirect('/calendar');
 	}
 	});
 });
@@ -67,7 +67,7 @@ function load_events(){
 	return JSON.parse(fs.readFileSync(path.join(__dirname, 'public/events.json'), 'utf8'));
 }
 
-functions.http('/calendar', function(req, res) {
+functions.http('calendar', function(req, res) {
 res.render(path.join(__dirname, 'templates/index.html'), {events: load_events()});
 
 });
