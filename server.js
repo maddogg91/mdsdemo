@@ -9,6 +9,7 @@ var redis= require('redis');
 var unirest= require('unirest');
 var {Client}= require('@googlemaps/google-maps-services-js');
 
+
 app.set("views", path.join(__dirname, "templates"));
 app.engine("html", require("ejs").renderFile);
 app.set("view engine", "html");
@@ -16,8 +17,11 @@ app.use(express.static("public"));
 app.use(express.static("images"));
 app.use(express.json());
 app.use(bodyParser.urlencoded({extended: true}));
+const loaded_events= load_events();
 
 const parent_dir= __dirname;
+var calendar= require('./calendar-demo/index.js');
+
 
 const c= new Client({});
 var reslt= {}
