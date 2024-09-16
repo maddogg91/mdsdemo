@@ -40,6 +40,11 @@ async function makeConnection(){
 }
 
 functions.http('save', async function(req,res, next){
+res.set('Access-Control-Allow-Origin', '*');
+res.set('Access-Control-Allow-Methods', 'POST');
+    res.set('Access-Control-Allow-Headers', 'Content-Type');
+    res.set('Access-Control-Max-Age', '3600');
+
 	new_event= req.body;
 	if(new_event.calendar== 'Meeting'){
 		new_event.color= "orange";
@@ -68,6 +73,9 @@ function load_events(){
 }
 
 functions.http('calendar', function(req, res) {
+res.set('Access-Control-Allow-Origin', '*');res.set('Access-Control-Allow-Methods', 'GET');
+res.set('Access-Control-Allow-Headers', 'Content-Type');
+res.set('Access-Control-Max-Age', '3600');
 res.render(path.join(__dirname, 'templates/index.html'), {events: load_events()});
 
 });
