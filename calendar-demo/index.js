@@ -13,6 +13,7 @@ app.use(express.static("images"));
 app.use(express.json());
 app.use(bodyParser.urlencoded({extended: true}));
 const loaded_events= load_events();
+const functions = require('@google-cloud/functions-framework');
 
 
 const client = redis.createClient({
@@ -38,7 +39,7 @@ async function makeConnection(){
 });
 }
 
-app.post('/save', async function(req,res, next){
+functions.http('/save', async function(req,res, next){
 	new_event= req.body;
 	if(new_event.calendar== 'Meeting'){
 		new_event.color= "orange";
@@ -66,7 +67,7 @@ function load_events(){
 	return JSON.parse(fs.readFileSync(path.join(__dirname, 'public/events.json'), 'utf8'));
 }
 
-app.get('/calendar', function(req, res) {
+functions.http('/calendar', function(req, res) {
 res.render(path.join(__dirname, 'templates/index.html'), {events: load_events()});
 
 });
