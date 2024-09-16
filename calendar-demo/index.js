@@ -4,6 +4,7 @@ var redis= require('redis');
 	
 const loaded_events= load_events();
 
+const express = require("express");
 
 app.use(express.static("public"));
 app.use(express.static("images")); 
