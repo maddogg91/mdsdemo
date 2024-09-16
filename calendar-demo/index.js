@@ -6,8 +6,8 @@ const loaded_events= load_events();
 
 const express = require("express");
 
-app.use(express.static("public"));
-app.use(express.static("images")); 
+app.use(express.static("calendar-demo/public"));
+app.use(express.static("calendar-demo/public/images")); 
 
 	
 const client = redis.createClient({
