@@ -1,18 +1,7 @@
-module.exports = function(){
-const express = require("express");
-const app = express();
-const path = require("path");
-const bodyParser = require("body-parser");
+module.exports = function(app, path){
 var fs = require('fs');
 var redis= require('redis');
-
-app.set("views", path.join(__dirname, "templates"));
-app.engine("html", require("ejs").renderFile);
-app.set("view engine", "html");
-app.use(express.static("public"));
-app.use(express.static("images"));
-app.use(express.json());
-app.use(bodyParser.urlencoded({extended: true}));
+	
 const loaded_events= load_events();
 
 
