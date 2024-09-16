@@ -17,7 +17,6 @@ app.use(express.static("public"));
 app.use(express.static("images"));
 app.use(express.json());
 app.use(bodyParser.urlencoded({extended: true}));
-const loaded_events= load_events();
 
 const parent_dir= __dirname;
 var calendar= require('./calendar-demo/index.js');
