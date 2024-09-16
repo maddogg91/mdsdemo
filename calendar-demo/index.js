@@ -73,10 +73,6 @@ res.render(path.join(__dirname, 'templates/index.html'), {events: load_events()}
 
 });
 
-const port = process.env.PORT || 8080;
-app.listen(port, () => {
-  console.log("Starting Server on port #: " + port)
-});
 
 
 
