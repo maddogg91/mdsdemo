@@ -176,7 +176,7 @@ body{
 	
 	info.classList.add("placecard__info");
 	info.innerText= e.formatted_address;
-	var sm= "";
+	var sm= document.createElement("small");
 	if(!x.innerHTML.includes("Geolocation") && !x.innerHTML == ""){
 		var l= JSON.parse(x.innerHTML);
 	
@@ -185,7 +185,7 @@ body{
 		
 		var distance = Math.round(google.maps.geometry.spherical.computeDistanceBetween(new google.maps.LatLng(itemLat
 		, itemLng), new google.maps.LatLng(l.lat, l.lng)) / 1609);       
-		var sm= document.createElement("small");
+		
 		sm.innerHTML= "\nThis location is " + distance + " away from you." ;
 		
 	}
