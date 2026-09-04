@@ -19,3 +19,12 @@ springdoc:
 
 coupon-api:
   cache-ttl-minutes: 30
+
+walmart:
+  affiliate:
+    enabled: ${WALMART_AFFILIATE_ENABLED:false}
+    base-url: ${WALMART_AFFILIATE_BASE_URL:https://api.impact.com}
+    account-sid: ${WALMART_AFFILIATE_ACCOUNT_SID:}
+    auth-token: ${WALMART_AFFILIATE_AUTH_TOKEN:}
+    campaign-id: ${WALMART_AFFILIATE_CAMPAIGN_ID:}
+    page-size: 50

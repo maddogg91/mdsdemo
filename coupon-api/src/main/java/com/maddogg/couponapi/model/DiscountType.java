@@ -4,5 +4,6 @@ public enum DiscountType {
     PERCENT_OFF,
     DOLLAR_OFF,
     BOGO,
-    FREE_SHIPPING
+    FREE_SHIPPING,
+    OTHER
 }
